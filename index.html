@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DadaCraft Live Console — TikTok Live をゲームとつなぐ配信コンソール</title>
+<meta name="description" content="TikTok Live のギフト・コメント・いいねをトリガーに、Minecraft や好きなゲームへアクションを送る配信者向けコンソール。読み上げ・OBSオーバーレイ付き。">
+<style>
+  :root {
+    --bg:#0f1218; --panel:#171c26; --border:#2a3245; --text:#e8ecf4;
+    --dim:#8b94a7; --accent:#4da3ff; --ok:#3ddc84; --warn:#ffb454; --pink:#ff4d8d;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:"Segoe UI","Yu Gothic UI","Hiragino Sans",sans-serif; line-height:1.8; }
+  .wrap { max-width:920px; margin:0 auto; padding:24px 20px 80px; }
+  header { text-align:center; padding:70px 0 50px; }
+  header h1 { font-size:38px; letter-spacing:.02em; }
+  header .tagline { color:var(--dim); font-size:18px; margin-top:14px; }
+  .cta { display:inline-block; margin-top:28px; background:var(--accent); color:#08111f; font-weight:bold;
+         padding:13px 34px; border-radius:10px; text-decoration:none; font-size:17px; }
+  .cta.ghost { background:transparent; color:var(--accent); border:1px solid var(--accent); margin-left:10px; }
+  h2 { font-size:24px; margin:60px 0 18px; border-left:4px solid var(--accent); padding-left:12px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+  .card { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:20px; }
+  .card h3 { font-size:17px; margin-bottom:8px; }
+  .card p { color:var(--dim); font-size:14px; }
+  .emoji { font-size:26px; display:block; margin-bottom:8px; }
+  table { width:100%; border-collapse:collapse; background:var(--panel); border-radius:12px; overflow:hidden; }
+  th, td { padding:12px 16px; border-bottom:1px solid var(--border); text-align:left; font-size:15px; }
+  th { color:var(--dim); font-weight:normal; font-size:13px; }
+  td.ok { color:var(--ok); } td.ng { color:var(--dim); }
+  .price { font-size:26px; font-weight:bold; color:var(--warn); }
+  details { background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:14px 18px; margin-bottom:10px; }
+  summary { cursor:pointer; font-weight:bold; }
+  details p { color:var(--dim); font-size:14px; margin-top:8px; }
+  footer { margin-top:80px; padding-top:24px; border-top:1px solid var(--border); color:var(--dim); font-size:13px; }
+  footer h2 { font-size:16px; margin:24px 0 8px; border:none; padding:0; color:var(--text); }
+  a { color:var(--accent); }
+  .note { color:var(--dim); font-size:13px; margin-top:10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>🎮 DadaCraft Live Console</h1>
+  <p class="tagline">TikTok Live のギフト・コメント・いいねが、そのままゲームの中のアクションになる。<br>
+  Windows で動く、配信者のための連携コンソール。</p>
+  <a class="cta" href="https://github.com/tamayatools/tamayatools.github.io/releases/latest" target="_blank">⬇ ダウンロード（無料版）</a>
+<a class="cta ghost" href="#pricing">料金を見る</a>
+  <a class="cta ghost" href="https://www.tiktok.com/@ta__maya____" target="_blank">開発者の配信を見る</a>
+</header>
+
+<h2>できること</h2>
+<div class="grid">
+  <div class="card"><span class="emoji">🎁</span><h3>ギフト・コメント・いいねで発動</h3>
+    <p>ギフト（画像つき一覧から選択）、コイン数の範囲、コメント（全文/一部/先頭一致）、いいね数（全体/個人）、フォロー、シェア、入室——豊富なトリガーを組み合わせてルールを作成。</p></div>
+  <div class="card"><span class="emoji">⚔️</span><h3>Minecraft も、それ以外のゲームも</h3>
+    <p>Minecraft サーバーへはコマンドを直接送信（RCON）。その他のゲームにはキー入力送信や HTTP リクエストで対応。ゲームごとにプリセットを保存してタブで切り替えられます。</p></div>
+  <div class="card"><span class="emoji">🔊</span><h3>コメント読み上げ</h3>
+    <p>Windows 標準・Edge・Google 翻訳のボイスは無料。読み上げプランなら VOICEVOX（ずんだもん等）や COEIROINK のキャラボイスを組み合わせた「ボイスセット」で、視聴者ごとに声を変えて賑やかに。読み上げ対象をサブスクライバー限定などに絞ることも可能。</p></div>
+  <div class="card"><span class="emoji">📺</span><h3>OBS オーバーレイ</h3>
+    <p>URL を OBS のブラウザソースに貼るだけで、ギフト・フォロー・シェアの通知が配信画面にアニメーション表示。高額ギフトは特別演出。</p></div>
+  <div class="card"><span class="emoji">🎯</span><h3>細かい発動条件</h3>
+    <p>対象ユーザーの指定、サブスク/フォロワー/ギフト経験者などの属性フィルタ、クールダウン、再フォロー除外、1人あたりの回数制限まで設定できます。</p></div>
+  <div class="card"><span class="emoji">🖥️</span><h3>ブラウザで完結する管理画面</h3>
+    <p>接続・ルール編集・テスト発火・送信ログをリアルタイムのダッシュボードで。ドライランで安全に動作確認してから本番へ。</p></div>
+</div>
+
+<h2 id="pricing">料金</h2>
+<table>
+  <tr><th></th><th>無料版</th><th>読み上げ</th><th>ゲーム連携</th><th>セット</th></tr>
+  <tr><td>価格（月額）</td><td>¥0</td><td class="price">$10</td><td class="price">$10</td><td class="price">$18（1 割引）</td></tr>
+  <tr><td>TikTok Live 接続・ダッシュボード</td><td class="ok">✔</td><td class="ok">✔</td><td class="ok">✔</td><td class="ok">✔</td></tr>
+  <tr><td>OBS オーバーレイ・ウィジェット・ルーレット</td><td class="ok">✔ すべて</td><td class="ok">✔</td><td class="ok">✔</td><td class="ok">✔</td></tr>
+  <tr><td>ウィジェットのロゴ</td><td>右上に小さく表示</td><td class="ok">外せる</td><td class="ok">外せる</td><td class="ok">外せる</td></tr>
+  <tr><td>コメント読み上げ</td><td>Windows 標準・Edge・Google 翻訳ボイス</td><td class="ok">✔ ＋ VOICEVOX / COEIROINK などのキャラボイス</td><td>Windows 標準・Edge・Google 翻訳ボイス</td><td class="ok">✔ ＋ VOICEVOX / COEIROINK などのキャラボイス</td></tr>
+  <tr><td>読み上げボイスセット（複数ボイスの切替）</td><td class="ng">—</td><td class="ok">✔</td><td class="ng">—</td><td class="ok">✔</td></tr>
+  <tr><td>ゲーム連携のルール数</td><td>上から 10 個まで動作</td><td>上から 10 個まで動作</td><td class="ok">無制限</td><td class="ok">無制限</td></tr>
+  <tr><td>ゲームプリセット（ゲームごとの切替）</td><td>1 つ</td><td>1 つ</td><td class="ok">無制限</td><td class="ok">無制限</td></tr>
+  <tr><td>📊 リスナー集計（期間別のギフト・いいね・コメント）</td><td class="ok">✔</td><td class="ok">✔</td><td class="ok">✔</td><td class="ok">✔</td></tr>
+</table>
+<p class="note">購入で発行されるライセンスキーをコンソールの「🔑 ライセンス」タブに入力すると、そのプランの機能が開放されます。
+決済は Lemon Squeezy（会員登録不要・クレジットカード）で行われ、解約はいつでも可能です。</p>
+
+<h2>動作環境</h2>
+<div class="card">
+  <p>Windows 10/11。TikTok Live の配信者アカウント（ギフト連携には LIVE 権限が必要）。
+  Minecraft 連携には RCON が有効な Java 版サーバー（Paper 等）。
+  読み上げ・オーバーレイはネットワーク接続のみで動作します。</p>
+</div>
+
+<h2>よくある質問</h2>
+<details><summary>TikTok や Minecraft の公式ツールですか？</summary>
+  <p>いいえ。個人開発の非公式ツールで、TikTok・Mojang・Microsoft とは関係ありません。TikTok Live への接続はコミュニティで広く使われている方式を採用していますが、TikTok 側の仕様変更により一時的に接続できなくなる可能性があります。その際はアップデートで対応します。</p></details>
+<details><summary>解約したらどうなりますか？</summary>
+  <p>ライセンスキーが失効し、無料版の機能範囲に戻ります。作成したルールやプリセットの設定データは消えません。</p></details>
+<details><summary>ライセンスは何台まで使えますか？</summary>
+  <p>ご自身の配信用 PC を想定して複数台のアクティベーションに対応しています（台数上限は購入ページに記載）。</p></details>
+<details><summary>返金はできますか？</summary>
+  <p>決済プラットフォーム（Lemon Squeezy）のポリシーに準じます。まず無料版で動作確認いただくことをおすすめします。</p></details>
+
+<footer>
+  <h2>利用規約（要約）</h2>
+  <p>本ソフトウェアは現状有姿で提供され、TikTok・Minecraft 等の外部サービスの仕様変更による機能停止について開発者は責任を負いません。
+  ライセンスキーの共有・再配布・リバースエンジニアリングは禁止です。配信での利用はご自身のアカウント・コンテンツポリシーの範囲で行ってください。</p>
+  <h2>プライバシーポリシー（要約）</h2>
+  <p>本ソフトウェアは利用者の PC 上でのみ動作し、配信データを開発者のサーバーへ送信しません。
+  ライセンス認証のためキー情報のみが決済プラットフォーム（Lemon Squeezy）に送信されます。</p>
+  <h2>連絡先</h2>
+  <p>TikTok: <a href="https://www.tiktok.com/@ta__maya____" target="_blank">@ta__maya____</a></p>
+  <h2>商標について</h2>
+  <p>Minecraft 公式の製品ではありません。Mojang および Microsoft が承認・関係しているものではありません。<br>NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.<br>
+  Minecraft は Mojang Synergies AB の商標です。TikTok は ByteDance Ltd. の商標です。本ソフトウェアはこれらの企業とは関係ありません。</p>
+  <p style="margin-top:20px">© 2026 DadaCraft Live Console</p>
+</footer>
+
+</div>
+</body>
+</html>
